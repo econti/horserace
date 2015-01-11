@@ -19,6 +19,7 @@ $ pip install horserace
 ```
 from horserace.run_race import Race
 race = Race(pandas_df, x_cols, y_cols, problem_type)
+race.go()
 ```
 
 ####Algorithms used
