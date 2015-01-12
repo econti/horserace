@@ -19,6 +19,7 @@ $ pip install horserace
 ```
 $ from horserace.run_race import Race
 $ race = Race(pandas_df, x_cols, y_cols, problem_type)
+$ race.go()
 
 |||||||||||||||||||| And they're off! ||||||||||||||||||||
 Logistic regression: Accuracy: 0.50 (+/- 0.63)
