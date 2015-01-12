@@ -1,3 +1,5 @@
+from classification import ClassifyModel
+from fabric.colors import magenta
 
 class Race():
     """ Initialize horserace object to beging horserace"""
@@ -6,20 +8,27 @@ class Race():
                 , pandas_dataframe
                 , independent_vars
                 , dependent_vars 
-                , problem_type):
+                , problem_type
+                , k=5):
 
         self.df = pandas_dataframe
         self.Xs = independent_vars
         self.Y = dependent_vars
         self.problem_type = problem_type
+        self.folds = k
 
 
     def go(self):        
         """ start horserace and score algorithms """
 
         if self.problem_type == 1:
+            print magenta("|" * 20 + " And they're off! " + "|" * 20)
             # classification
-            pass
+            c = ClassifyModel(self)
+            c.logistic_regression()
+            c.knn()
+            
+
 
         elif self.problem_type == 2:
             # regression
