@@ -2,6 +2,7 @@ from sklearn import cross_validation
 from sklearn import linear_model
 from fabric.colors import magenta, green
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 class ClassifyModel():
     """generic class of a machine learning model"""
@@ -32,10 +33,22 @@ class ClassifyModel():
         avg, std = self.validate(logreg)
         print "Logistic regression: Accuracy: %0.2f (+/- %0.2f)" % (avg, std * 2)
 
+
     def knn(self):
         """
         run knn
         """
         knn_model = KNeighborsClassifier()
         avg, std = self.validate(knn_model)
-        print "KNN: Accuracy: %0.2f (+/- %0.2f)" % (avg, std * 2)        
+        print "KNN: Accuracy: %0.2f (+/- %0.2f)" % (avg, std * 2)       
+
+
+    def random_forest(self):
+        """
+        run a random forest
+        """
+        rf = RandomForestClassifier()
+        avg, std = self.validate(rf)
+        print "Random forest: Accuracy: %0.2f (+/- %0.2f)" % (avg, std * 2)       
+
+

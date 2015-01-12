@@ -9,13 +9,13 @@ class Race():
                 , independent_vars
                 , dependent_vars 
                 , problem_type
-                , k=5):
+                , folds=5):
 
         self.df = pandas_dataframe
         self.Xs = independent_vars
         self.Y = dependent_vars
         self.problem_type = problem_type
-        self.folds = k
+        self.folds = folds
 
 
     def go(self):        
@@ -27,8 +27,7 @@ class Race():
             c = ClassifyModel(self)
             c.logistic_regression()
             c.knn()
-            
-
+            c.random_forest()
 
         elif self.problem_type == 2:
             # regression
